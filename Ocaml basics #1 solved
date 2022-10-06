@@ -1,4 +1,4 @@
-(* 1. massimo numeroval max_nat : int -> int -> int*)
+(* 1. massimo numero val max_nat : int -> int -> int*)
 let max_nat a b = if a >0 && b >0 then (if a<b then b else a) else failwith "i numeri non sono naturali";;
 
 (* 2. valore assoluto val f : int -> int*)
@@ -106,8 +106,6 @@ let int_of_grade v = if ( not(is_valid v )) then failwith "errore"
 let avg l = let somma = List.fold_right (fun a b -> int_of_grade a + b) l 0
   in (float_of_int somma) /. float_of_int (List.length l);;
    
-
-
 
 (*10 minimo di una funzione type 'a option = Some of 'a | None 
   
