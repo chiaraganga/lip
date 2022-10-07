@@ -1,0 +1,15 @@
+(* 2.2 Random list
+
+The function Random.int in the Ocaml library generates a random number bounded by a given integer:
+
+# Random.int;;
+- : int -> int = <fun>
+Use this random generator to write a function with type:
+
+val rnd_list : int -> int -> int list = <fun>
+such that rnd_list n b generates a list of n elements in the range [1,b].
+*)
+
+let rec rnd_list n b = match n with
+    0 -> []
+  | _ -> (rnd_list (n-1) b) @ [Random.int b];;
