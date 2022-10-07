@@ -1,0 +1,15 @@
+(* 2.1 Duplicati Write a function with type:
+
+val dup : 'a list -> bool = <fun>
+such that dup l evaluates to true iff the list l contains duplicates.
+*)
+
+let rec controllo l e = match l with
+    [] -> false
+  | h::t -> if (h = e) then true else controllo t e
+;;
+
+let rec dup l = match l with  
+    [] -> false 
+  | h::t -> if (controllo t h) then true else dup t
+;;
