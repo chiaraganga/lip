@@ -10,6 +10,6 @@ val rnd_list : int -> int -> int list = <fun>
 such that rnd_list n b generates a list of n elements in the range [1,b].
 *)
 
-let rec rnd_list n b = match n with
-    0 -> []
-  | _ -> (rnd_list (n-1) b) @ [Random.int b];;
+let rec rnd_list a b = if a = 0 
+  then []
+  else ((Random.int b)+1)::(rnd_list (a-1) b);;
