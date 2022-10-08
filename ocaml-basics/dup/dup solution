@@ -4,12 +4,17 @@ val dup : 'a list -> bool = <fun>
 such that dup l evaluates to true iff the list l contains duplicates.
 *)
 
-let rec controllo l e = match l with
+let rec is_present element list = match list with
     [] -> false
-  | h::t -> if (h = e) then true else controllo t e
-;;
+  | h::t -> if (element = h) then true else is_present element t;;
 
-let rec dup l = match l with  
-    [] -> false 
-  | h::t -> if (controllo t h) then true else dup t
-;;
+(* Con la fold sarebbe stato: 
+let is_present2 el l = List.fold_right (fun a b -> (el = a) || b) l false;; 
+
+*)
+
+let rec dup l = match l with
+    [] -> false
+  | h::t -> if (is_present h t) then true else dup t;;
+
+dup [1;2;3;4;2];;
